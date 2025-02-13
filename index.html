@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio Website</title>
+
+    <link rel="stylesheet" type="" href="index.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap">
+    <link href="Fonts-6/css/all.css"  rel="stylesheet"> <!--linking with font awesome--> 
+
+
+</head>
+<body>
+    <!--hero Section start-->
+    <div class="hero">
+
+        <nav>
+            <h2 class="logo">Portfo<span>lio</span></h2>
+
+            <ul>
+                <li><a href="#"> Home</a></li>
+                <li><a href="#about"> About Me</a></li>
+                <li><a href="#services"> Service</a></li>
+                <li><a href="#skills"> Skills</a></li>
+                <li><a href="#contacts"> Contact Me</a></li>
+            </ul>
+
+            <a href="#" class="btn">Rate</a>
+        </nav>
+
+         <div class="content"> <!--The next section containing contents-->  
+                <h4>Hello, my name is: </h4>
+                <h1>Grisham<span> Odhiambo</span></h1>
+                <h3>I am a Software Developer and Computer Engineer</h3>
+
+                <div class="newsletter"><!--the next part containing form elements-->
+                    <form onsubmit="sendEmail(event)">
+                        <input type="email" name="email" id="mail" placeholder="Enter Your Email">
+                        <input type="submit" name="submit" value="Let's Start">
+                    </form>
+
+                </div>
+
+              
+        </div>
+
+    </div>
+
+    <!--About section start-->
+   <section class="about">
+
+    <div class="main">
+
+        <img src="blue-shirt.jpg" alt="">
+        <div class="about-text">
+            <h2 id="about">About Me</h2>
+            <h5>Programmer & <span>Developer</span> </h5>
+            <p>
+
+                <p>Hi there! I'm a passionate and dedicated software developer with a strong background in both programming and hardware repair. With expertise in a wide range of languages and technologies, I create robust, efficient, and scalable solutions for diverse projects. My skills include:</p>
+                
+                <p><strong>Programming Languages:</strong> Java, C#, C++, Python, HTML, CSS, JavaScript, PHP
+
+                <br><strong>Frameworks & Libraries:</strong> React
+                <br><strong>Databases:</strong> SQL, MongoDB, Redis
+                <br><strong>Other Skills:</strong> Computer hardware repair</p>
+                
+                <br><p>My journey in software development has been driven by a relentless curiosity and a desire to innovate.
+                
+                <br>I thrive on tackling complex problems and turning ideas into reality.
+                
+                I'm excited to contribute my skills and knowledge to create impactful software solutions and continuously learn and grow in this ever-evolving field.</p>
+                
+            <button type="button">Let's Talk</button>
+        </div>
+    </div>
+     
+   </section>
+
+   <!--service section start-->
+   <div class="service">
+    <div class="title">
+        <h2 id="services">My Services</h2>
+    </div>
+
+    <div class="box">
+
+        <div class="card ">
+            <i class="fa-solid fa-bars"></i>
+            <h5>Web Development</h5>
+            <div class="pra">
+                <p>
+                    I specialize in crafting modern, responsive, and high-performance websites that provide seamless user experiences.
+                </p>
+                <p style="text-align:center ;">
+                    <a class="button"  href="#">Read More</a>
+                </p>
+
+            </div>
+        </div>
+
+
+        <div class="card ">
+            <i class="fa-regular fa-user"></i>
+            <h5 id="contacts">My Contacts</h5>
+            <div class="pra">
+                <p>
+                 <span style="color: white;"> Tel : </span> - <a href="#">0712482948</a> 
+                </p>
+        
+                <p>
+                    <span style="color: white;"> Mobile : </span> - <a href="#">0783895089 </a>
+                </p>
+                <p style="text-align:center ;">
+                    <a class="button"  href="#">Contact</a>
+                </p>
+
+            </div>
+        </div>
+
+
+        <div class="card ">
+            <i class="fa-regular fa-bell"></i>
+            <h5>Feed back</h5>
+            <div class="pra">
+                <p>
+                    Every website should be built with two primary goals: Firstly, it needs to work across all devices. Secondly, it needs to be fast as possible
+                </p>
+
+                <p style="text-align:center ;">
+                    <a class="button"  href="#">Comment</a>
+                </p>
+
+            </div>
+        </div>
+    </div>
+
+   </div>
+
+   <!--Contact Me-->
+   <div class="contact-me">
+    <p>Let Me Develop For You a Wonderful Software </p>
+    <a class="button-two" href="#">Hire Me</a>
+   </div>
+
+   <!--footer start-->
+   <footer>
+    <p> Enos Grisham Odhiambo</p>
+   <p id="skills">For more information involving my achievements - please click on the links below: </p>
+   <div class="social">
+    <a href="#">
+        <i class="fa-brands fa-github"></i>
+        <span>GitHub</span>
+    </a>
+    <a href="#">
+        <i class="fa-brands fa-instagram"></i>
+        <span>Facebook</span>
+    </a>
+    <a href="">
+        <i class="fa-solid fa-certificate"></i>
+        <span>Certificates</span>
+    </a>
+</div>
+
+   <p class="end">CopyRight By Enos-Grisham</p>
+   </footer>
+
+
+
+  
+</body>
+
+
+</html>
