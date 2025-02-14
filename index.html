@@ -20,15 +20,20 @@
     <!--hero Section start-->
     <div class="hero">
 
-        <nav>
+        <!-- Menu Icon for Small Screens -->
+        <div class="menu-icon" onclick="toggleMenu()">&#9776;</div>
+
+        <nav id="nav-menu">
             <h2 class="logo">Portfo<span>lio</span></h2>
 
+           
+
             <ul>
-                <li><a href="#"> Home</a></li>
-                <li><a href="#about"> About Me</a></li>
-                <li><a href="#services"> Service</a></li>
-                <li><a href="#skills"> Skills</a></li>
-                <li><a href="#contacts"> Contact Me</a></li>
+                <li><a href="#" onclick="closeMenu()"> Home</a></li>
+                <li><a href="#about" onclick="closeMenu()"> About Me</a></li>
+                <li><a href="#services" onclick="closeMenu()"> Service</a></li>
+                <li><a href="#skills" onclick="closeMenu()"> Skills</a></li>
+                <li><a href="#contacts" onclick="closeMenu()"> Contact Me</a></li>
             </ul>
 
             <a href="#" class="btn "onclick="rateMe()">Rate</a>
@@ -51,9 +56,8 @@
                 </div>
             </div>
         
-
-
         </nav>
+
 
          <div class="content"> <!--The next section containing contents-->  
                 <h4>Hello, my name is: </h4>
@@ -89,7 +93,7 @@
            <p id="skills" style=" font-size: 30px;"><strong>My skills include: </strong> </p>
                 <p ><strong>Programming Languages:</strong> Java, C#, C++, Python, HTML, CSS, JavaScript, PHP
 
-                <br><strong>Frameworks & Libraries:</strong> React
+                <strong>Frameworks & Libraries:</strong> React
                 <br><strong>Databases:</strong> SQL, MongoDB, Redis
                 <br><strong>Other Skills:</strong> Computer hardware repair</p>
                 
@@ -100,6 +104,7 @@
                 I'm excited to contribute my skills and knowledge to create impactful software solutions and continuously learn and grow in this ever-evolving field.</p>
                 
             <button type="button">Let's Talk</button>
+
         </div>
     </div>
      
@@ -189,7 +194,7 @@
         <i class="fa-brands fa-instagram"></i>
         <span>Facebook</span>
     </a>
-    <a href="">
+    <a href="#">
         <i class="fa-solid fa-certificate"></i>
         <span>Certificates</span>
     </a>
