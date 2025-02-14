@@ -172,15 +172,14 @@ h4{
     right: 6px;
 }
 
-
 /* Responsive Design */
 @media (min-width: 1024px) and (max-width: 1279px) {
     .content {
-        left: 1%; /* Moves content further to the left */
-        width: 60%; /* Limits width to avoid stretching too much */
+        left: 1%;
+        width: 60%;
         text-align: left;
         margin-bottom: 150px;
-        margin-top: 200px; /* Moves down when needed */
+        margin-top: 200px;
     }
     h1 {
         font-size: 50px;
@@ -195,11 +194,11 @@ h4{
 
 @media (min-width: 1280px) and (max-width: 1439px) {
     .content {
-        left: 1%; /* Keeps content on the left */
-        width: 55%; /* Slightly smaller width for better alignment */
+        left: 1%;
+        width: 55%;
         text-align: left;
         margin-bottom: 180px;
-        margin-top: 150px; /* Moves down when needed */
+        margin-top: 150px;
     }
     
     h1 {
@@ -216,7 +215,7 @@ h4{
 @media (min-width: 1440px) { 
     .content {
         left: 1%;
-        width: 50%; /* Ensures it stays on the left without taking too much space */
+        width: 50%;
         text-align: left;
         margin-top: 120px;
     }
@@ -226,9 +225,9 @@ h4{
     .content {
         left: 5%;
         width: 90%;
-        text-align: center; /* Centers text on smaller screens */
-        margin-bottom: 170px;
-        margin-top: 90px; /* Moves down when needed */
+        text-align: center;
+        margin-bottom: 100px;
+        margin-top: 50px; /* Adjusted to move content higher */
     }
     h1 {
         font-size: 45px;
@@ -245,9 +244,9 @@ h4{
     .content {
         left: 3%;
         width: 95%;
-        text-align: center; /* Keeps text centered for mobile */
-        margin-bottom: 170px;
-        margin-top: 150px;
+        text-align: center;
+        margin-bottom: 100px;
+        margin-top: 30px; /* Moves content near the top */
     }
     h1 {
         font-size: 40px;
@@ -262,12 +261,12 @@ h4{
 
 @media (max-width: 576px) {
     .content {
-        top: 40%;
+        top: 10px; /* Moves content to the very top */
         left: 2%;
         width: 96%;
-        text-align: center; /* Fully centered for small devices */
-        margin-bottom: 170px;
-        margin-top: 90px;
+        text-align: center;
+        margin-bottom: 50px;
+        margin-top: 10px; /* Almost no top margin */
     }
     h1 {
         font-size: 35px;
@@ -286,6 +285,8 @@ h4{
         font-size: 14px;
     }
 }
+
+
 
 
 .about{
