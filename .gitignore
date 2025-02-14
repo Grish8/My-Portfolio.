@@ -1,3 +1,8 @@
-*.jpg
+# Ignore all image files
 *.png
-*Fonts-6
+*.jpg
+*.jpeg
+*.gif
+*.svg
+*.webp
+ratings.html
