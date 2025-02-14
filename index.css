@@ -123,6 +123,7 @@ nav ul li a:hover {
     width: auto;
     text-align: left;
     margin-top: 20px; /* Adds spacing from the top section */
+    margin-bottom: 150px;
 }
 
 h1{
@@ -198,7 +199,7 @@ h4{
         width: 55%;
         text-align: left;
         margin-bottom: 180px;
-        margin-top: 150px;
+        margin-top: 100px;
     }
     
     h1 {
@@ -217,7 +218,8 @@ h4{
         left: 1%;
         width: 50%;
         text-align: left;
-        margin-top: 120px;
+        margin-top: 50px;
+        margin-bottom: 100px;
     }
 }
 
@@ -265,7 +267,7 @@ h4{
         left: 2%;
         width: 96%;
         text-align: center;
-        margin-bottom: 50px;
+        margin-bottom: 100px;
         margin-top: 10px; /* Almost no top margin */
     }
     h1 {
@@ -1634,7 +1636,7 @@ body {
     }
 
     nav {
-        width: 70%; /* Makes nav slightly narrower on smaller screens */
+        width: 40%; /* Makes nav slightly narrower on smaller screens */
         padding: 15px;
     }
 
