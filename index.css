@@ -9,7 +9,7 @@
 html {
     scroll-behavior: smooth;
     overflow-x: hidden; /* Prevent horizontal scrolling */
-    
+    background-color: #000;
 }
 
 
@@ -76,8 +76,6 @@ nav ul li a:hover {
     color: rgb(59, 59, 233);
     transition: 0.4s;
 }
-
-
 
 
 .menu-icon {
@@ -172,122 +170,6 @@ h4{
     top: 6px;
     right: 6px;
 }
-
-/* Responsive Design */
-@media (min-width: 1024px) and (max-width: 1279px) {
-    .content {
-        left: 1%;
-        width: 60%;
-        text-align: left;
-        margin-bottom: 150px;
-        margin-top: 200px;
-    }
-    h1 {
-        font-size: 50px;
-    }
-    h3 {
-        font-size: 22px;
-    }
-    h4 {
-        font-size: 18px;
-    }
-}
-
-@media (min-width: 1280px) and (max-width: 1439px) {
-    .content {
-        left: 1%;
-        width: 55%;
-        text-align: left;
-        margin-bottom: 180px;
-        margin-top: 100px;
-    }
-    
-    h1 {
-        font-size: 50px;
-    }
-    h3 {
-        font-size: 22px;
-    }
-    h4 {
-        font-size: 18px;
-    }
-}
-
-@media (min-width: 1440px) { 
-    .content {
-        left: 1%;
-        width: 50%;
-        text-align: left;
-        margin-top: 50px;
-        margin-bottom: 100px;
-    }
-}
-
-@media (max-width: 992px) {
-    .content {
-        left: 5%;
-        width: 90%;
-        text-align: center;
-        margin-bottom: 100px;
-        margin-top: 50px; /* Adjusted to move content higher */
-    }
-    h1 {
-        font-size: 45px;
-    }
-    h3 {
-        font-size: 20px;
-    }
-    h4 {
-        font-size: 16px;
-    }
-}
-
-@media (max-width: 768px) {
-    .content {
-        left: 3%;
-        width: 95%;
-        text-align: center;
-        margin-bottom: 100px;
-        margin-top: 30px; /* Moves content near the top */
-    }
-    h1 {
-        font-size: 40px;
-    }
-    h3 {
-        font-size: 18px;
-    }
-    h4 {
-        font-size: 14px;
-    }
-}
-
-@media (max-width: 576px) {
-    .content {
-        top: 10px; /* Moves content to the very top */
-        left: 2%;
-        width: 96%;
-        text-align: center;
-        margin-bottom: 100px;
-        margin-top: 10px; /* Almost no top margin */
-    }
-    h1 {
-        font-size: 35px;
-    }
-    h3 {
-        font-size: 16px;
-    }
-    h4 {
-        font-size: 12px;
-    }
-    .newsletter form input:first-child {
-        padding: 12px 90px 12px 15px;
-    }
-    .newsletter form input:last-child {
-        padding: 8px 20px;
-        font-size: 14px;
-    }
-}
-
 
 
 
@@ -407,34 +289,6 @@ button:hover{
     }
 }
 
-@media (max-width: 576px) {
-    .about-text {
-        padding: 70px 20px;
-    }
-
-    .about img {
-        width: 90%;
-        max-width: 250px;
-    }
-
-    .about-text h2 {
-        font-size: 35px;
-    }
-
-    .about-text h5 {
-        font-size: 14px;
-    }
-
-    .about-text p {
-        font-size: 12px;
-        line-height: 22px;
-    }
-
-    button {
-        padding: 10px 25px;
-        font-size: 14px;
-    }
-}
 
 
 
@@ -452,37 +306,6 @@ button:hover{
     margin: 20px auto;
     text-align: center;
 }
-/* Large screens (desktops, laptops) */
-@media (min-width: 1024px) {
-    .title h2 {
-        font-size: 65px;
-        max-width: 85%;
-    }
-}
-
-/* Tablets */
-@media (max-width: 992px) {
-    .title h2 {
-        font-size: 55px;
-        max-width: 80%;
-    }
-}
-
-/* Smaller tablets and large phones */
-@media (max-width: 768px) {
-    .title h2 {
-        font-size: 45px;
-        max-width: 90%;
-    }
-}
-
-/* Mobile devices */
-@media (max-width: 576px) {
-    .title h2 {
-        font-size: 35px; /* Smaller font for small screens */
-        max-width: 95%;
-    }
-}
 
 
 
@@ -496,8 +319,9 @@ button:hover{
 
 }
 
+h1, h3, h4 { color :white;}
+
 h1{
-    color: white;
     margin:20px 0px 20px ;
     font-size: 65px;
 
@@ -506,12 +330,10 @@ h1{
     color: grey;
 }
 h3{
-    color: white;
     font-size: 25px;
     margin-bottom: 50px;
 }
 h4{
-    color:white;
     letter-spacing: 2px;
     font-size: 20px;
 }
@@ -543,81 +365,6 @@ h4{
     right: 6px;
 }
  
-
-
-
-/* Responsive Design */
-@media (max-width: 1200px) {
-    h1 {
-        font-size: 50px;
-    }
-    h3 {
-        font-size: 22px;
-    }
-    h4 {
-        font-size: 18px;
-    }
-}
-
-@media (max-width: 992px) {
-    .content {
-        left: 5%;
-        width: 90%;
-    }
-    h1 {
-        font-size: 45px;
-    }
-    h3 {
-        font-size: 20px;
-    }
-    h4 {
-        font-size: 16px;
-    }
-}
-
-@media (max-width: 768px) {
-    .content {
-        left: 3%;
-        width: 95%;
-    }
-    h1 {
-        font-size: 40px;
-    }
-    h3 {
-        font-size: 18px;
-    }
-    h4 {
-        font-size: 14px;
-    }
-}
-
-@media (max-width: 576px) {
-    .content {
-        top: 40%;
-        left: 2%;
-        width: 96%;
-        text-align: center;
-    }
-    h1 {
-        font-size: 35px;
-    }
-    h3 {
-        font-size: 16px;
-    }
-    h4 {
-        font-size: 12px;
-    }
-    .newsletter form input:first-child {
-        padding: 12px 90px 12px 15px;
-    }
-    .newsletter form input:last-child {
-        padding: 8px 20px;
-        font-size: 14px;
-    }
-}
-
-
-
 
 
 
@@ -753,310 +500,7 @@ button:hover {
     cursor: pointer;
 }
 
-/* Responsive Design */
-@media (max-width: 992px) {
-    .main {
-        flex-direction: column; /* Stack items vertically */
-        text-align: center;
-    }
 
-    .about img {
-        width: 80%;
-        max-width: 350px; /* Adjust image size for tablets */
-    }
-
-    .about-text h2 {
-        font-size: 50px; /* Reduce heading size */
-    }
-
-    .about-text h5 {
-        font-size: 18px;
-    }
-
-    .about-text p {
-        font-size: 16px;
-        line-height: 26px;
-    }
-}
-
-@media (max-width: 768px) {
-    .about {
-        padding: 60px 20px; /* Reduce padding for smaller screens */
-    }
-
-    .about img {
-        width: 100%;
-        max-width: 300px;
-    }
-
-    .about-text h2 {
-        font-size: 40px;
-    }
-
-    .about-text h5 {
-        font-size: 16px;
-    }
-
-    .about-text p {
-        font-size: 14px;
-        line-height: 24px;
-    }
-}
-
-@media (max-width: 576px) {
-    .about {
-        padding: 50px 10px;
-    }
-
-    .about img {
-        width: 90%;
-        max-width: 250px;
-    }
-
-    .about-text h2 {
-        font-size: 35px;
-    }
-
-    .about-text h5 {
-        font-size: 14px;
-    }
-
-    .about-text p {
-        font-size: 12px;
-        line-height: 22px;
-    }
-
-    button {
-        padding: 10px 25px;
-        font-size: 14px;
-    }
-}
-
-
-@media (min-width: 1024px) and (max-width: 1279px) {
-    .content {
-        left: 5%;
-        width: 90%;
-        text-align: left;
-        margin-bottom: 150px;
-        margin-top: 200px; /* Moves down when needed */
-    }
-    h1 {
-        font-size: 50px;
-    }
-    h3 {
-        font-size: 22px;
-    }
-    h4 {
-        font-size: 18px;
-    }
-   
-}
-
-@media (min-width: 1280px) and (max-width: 1439px) {
-    .content {
-        left: 5%;
-        width: 90%;
-        text-align: left;
-        margin-bottom: 180px;
-        margin-top: 150px; /* Moves down when needed */
-    }
-    
-    h1 {
-        font-size: 50px;
-    }
-    h3 {
-        font-size: 22px;
-    }
-    h4 {
-        font-size: 18px;
-    }
-  
-}
-
-@media (max-width: 992px) {
-    .content {
-        left: 5%;
-        width: 90%;
-        text-align: left;
-        margin-bottom: 170px;
-        margin-top: 90px; /* Moves down when needed */
-    }
-    h1 {
-        font-size: 45px;
-    }
-    h3 {
-        font-size: 20px;
-    }
-    h4 {
-        font-size: 16px;
-    }
-}
-
-@media (max-width: 768px) {
-    .content {
-        left: 3%;
-        width: 95%;
-        text-align: left;
-        margin-bottom: 170px;
-        margin-top: 150px;
-    }
-    h1 {
-        font-size: 40px;
-    }
-    h3 {
-        font-size: 18px;
-    }
-    h4 {
-        font-size: 14px;
-    }
-}
-
-@media (max-width: 576px) {
-    .content {
-        top: 40%;
-        left: 2%;
-        width: 96%;
-        text-align: left;
-        margin-bottom: 170px;
-        margin-top: 90px;
-    }
-    h1 {
-        font-size: 35px;
-    }
-    h3 {
-        font-size: 16px;
-    }
-    h4 {
-        font-size: 12px;
-    }
-    .newsletter form input:first-child {
-        padding: 12px 90px 12px 15px;
-    }
-    .newsletter form input:last-child {
-        padding: 8px 20px;
-        font-size: 14px;
-    }
-}
-
-
-
-
-/* Responsive Design */
-@media (min-width: 1024px) and (max-width: 1279px) {
-    .content {
-        left: 2%; /* Moves content further to the left */
-        width: 60%; /* Limits width to avoid stretching too much */
-        text-align: left;
-        margin-bottom: 150px;
-        margin-top: 200px; /* Moves down when needed */
-    }
-    h1 {
-        font-size: 50px;
-    }
-    h3 {
-        font-size: 22px;
-    }
-    h4 {
-        font-size: 18px;
-    }
-}
-
-@media (min-width: 1280px) and (max-width: 1439px) {
-    .content {
-        left: 2%; /* Keeps content on the left */
-        width: 55%; /* Slightly smaller width for better alignment */
-        text-align: left;
-        margin-bottom: 180px;
-        margin-top: 150px; /* Moves down when needed */
-    }
-    
-    h1 {
-        font-size: 50px;
-    }
-    h3 {
-        font-size: 22px;
-    }
-    h4 {
-        font-size: 18px;
-    }
-}
-
-@media (min-width: 1440px) { 
-    .content {
-        left: 2%;
-        width: 50%; /* Ensures it stays on the left without taking too much space */
-        text-align: left;
-        margin-top: 120px;
-    }
-}
-
-@media (max-width: 992px) {
-    .content {
-        left: 5%;
-        width: 90%;
-        text-align: center; /* Centers text on smaller screens */
-        margin-bottom: 170px;
-        margin-top: 90px; /* Moves down when needed */
-    }
-    h1 {
-        font-size: 45px;
-    }
-    h3 {
-        font-size: 20px;
-    }
-    h4 {
-        font-size: 16px;
-    }
-}
-
-@media (max-width: 768px) {
-    .content {
-        left: 3%;
-        width: 95%;
-        text-align: center; /* Keeps text centered for mobile */
-        margin-bottom: 100px;
-        margin-top: 100px;
-    }
-    h1 {
-        font-size: 40px;
-    }
-    h3 {
-        font-size: 18px;
-    }
-    h4 {
-        margin-top: 0px;
-        font-size: 14px;
-    }
-}
-
-@media (max-width: 576px) {
-    .content {
-        top: 40%;
-        left: 2%;
-        width: 96%;
-        text-align: center; /* Fully centered for small devices */
-        margin-bottom: 170px;
-        margin-top: 90px;
-    }
-    h1 {
-        font-size: 35px;
-    }
-    h3 {
-        font-size: 16px;
-    }
-    h4 {
-        margin-top: 10px;
-        font-size: 12px;
-    }
-    .newsletter form input:first-child {
-        padding: 12px 90px 12px 15px;
-    }
-    .newsletter form input:last-child {
-        padding: 8px 20px;
-        font-size: 14px;
-    }
-}
 
 
 .service{
@@ -1086,38 +530,6 @@ button:hover {
     max-width: 90%; /* Prevents stretching */
     margin: 20px auto;
     text-align: center;
-}
-
-/* Large screens (desktops, laptops) */
-@media (min-width: 1024px) {
-    .title h2 {
-        font-size: 65px;
-        max-width: 85%;
-    }
-}
-
-/* Tablets */
-@media (max-width: 992px) {
-    .title h2 {
-        font-size: 55px;
-        max-width: 80%;
-    }
-}
-
-/* Smaller tablets and large phones */
-@media (max-width: 768px) {
-    .title h2 {
-        font-size: 45px;
-        max-width: 90%;
-    }
-}
-
-/* Mobile devices */
-@media (max-width: 576px) {
-    .title h2 {
-        font-size: 35px; /* Smaller font for small screens */
-        max-width: 95%;
-    }
 }
 
 
@@ -1568,9 +980,6 @@ body {
     border-radius: 5px;
     cursor: pointer;
 }
-
-
-
 
 
 
