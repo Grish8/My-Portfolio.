@@ -102,19 +102,19 @@
         margin-top: 60px; /* Almost no top margin */
     }
     h1 {
-       margin: auto;
+       margin-top: 20px;
         font-size: 35px;
-        margin-bottom: 100px;
+        margin-bottom: 80px;
     }
     h3 {
        
-        margin: auto;
+        margin-top: 50px;
         font-size: 16px;
-        margin-bottom: 50px;
+        margin-bottom: 100px;
     }
     h4 {
         
-       margin: auto;
+       margin-top: 200px;
         font-size: 12px;
     }
     .newsletter form input:first-child {
