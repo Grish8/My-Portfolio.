@@ -125,21 +125,21 @@ nav ul li a:hover {
 }
 
 h1{
-    color: white;
+    
     margin:20px 0px 20px ;
     font-size: 65px;
 
 }
 .content h1 span{
-    color: white;
+    color:   greenyellow;
 }
 h3{
-    color: white;
+   
     font-size: 25px;
     margin-bottom: 50px;
 }
 h4{
-    color:white;
+    
     letter-spacing: 2px;
     font-size: 20px;
 }
@@ -311,32 +311,7 @@ button:hover{
 
 
  
-.content{
-    position: absolute;
-    top: 50%;
-    left: 8%;
-    transform: translateY(-50%);
 
-}
-
-h1, h3, h4 { color :white;}
-
-h1{
-    margin:20px 0px 20px ;
-    font-size: 65px;
-
-}
-.content h1 span{
-    color: grey;
-}
-h3{
-    font-size: 25px;
-    margin-bottom: 50px;
-}
-h4{
-    letter-spacing: 2px;
-    font-size: 20px;
-}
 .newsletter form{
     width: 380px;
     max-width: 100%;
@@ -568,13 +543,13 @@ button:hover {
 }
 
 h5 {
-    color: white;
+   
     font-size: 23px;
     margin-bottom: 15px;
 }
 
 .pra p {
-    color: black;
+    color: white;
     font-size: 16px;
     line-height: 27px;
     margin-bottom: 25px;
@@ -593,8 +568,8 @@ h5 {
 }
 
 .card .button:hover {
-    background-color: rgb(111, 201, 8);
-    border: 2px solid rgb(111, 201, 8);
+    background-color: transparent;
+    border: 2px solid rgb(31, 8, 201);
     cursor: pointer;
 }
 
