@@ -131,7 +131,7 @@ h1{
 
 }
 .content h1 span{
-    color: grey;
+    color: white;
 }
 h3{
     color: white;
@@ -549,7 +549,6 @@ button:hover {
     width: 100%; /* Default to full width for responsiveness */
     max-width: 335px; /* Limits maximum width */
     padding: 20px;
-    background: #191919;
     border-radius: 20px;
     margin: 15px;
     position: relative;
@@ -575,7 +574,7 @@ h5 {
 }
 
 .pra p {
-    color: white;
+    color: black;
     font-size: 16px;
     line-height: 27px;
     margin-bottom: 25px;
@@ -594,8 +593,8 @@ h5 {
 }
 
 .card .button:hover {
-    background-color: transparent;
-    border: 2px solid rgb(8, 88, 201);
+    background-color: rgb(111, 201, 8);
+    border: 2px solid rgb(111, 201, 8);
     cursor: pointer;
 }
 
