@@ -53,7 +53,7 @@ nav {
 }
 
 .logo span {
-    color: greenyellow;
+    color: #e00000;
 }
 
 nav ul {
@@ -96,8 +96,8 @@ nav ul li a:hover {
 
 
 /* Button */
-.btn {
-    background-color: rgb(8, 88, 201);
+.button {
+    background-color: #b30000;
     color: white;
     text-decoration: none;
     border: 2px solid transparent;
@@ -143,7 +143,7 @@ h1{
 
 }
 .content h1 span{
-    color:   greenyellow;
+    color:  #e00000;
 }
 
 .newsletter form{
@@ -208,8 +208,9 @@ h1{
     font-size: 18px;
     margin-bottom: 45px;
 }
+
 button{
-    background-color: rgb(8, 88, 201);
+    background-color: #b30000;
     color: white;
     text-decoration: none;
     border:2px solid transparent;
@@ -278,37 +279,18 @@ button:hover{
 
 
 .service{
-    background: #101010;
+    background: rgb(255, 253, 253);
     width: 100%;
-    padding: 80px 20px; /* Adjusted padding for better responsiveness */
+    padding: 60px 20px; /* Adjusted padding for better responsiveness */
 
 }
-.title h2 {
-    color: white;
+ .title h2 {
+    color: black;
     font-size: 50px; /* Default size for larger screens */
     max-width: 90%; /* Prevents stretching */
     margin: 20px auto;
     text-align: center;
 }
-
-
-
-
-.service{
-    background: #101010;
-    width: 100%;
-    padding: 100px 0px;
-
-}
-.title h2{
-    color: white;
-    font-size: 75px;
-    width: 1130px;
-    margin: 30px auto;
-    text-align: center;
-}
-
-
 
 
 
@@ -345,10 +327,10 @@ button:hover{
     color: #2f09ef;
 }
 
-h5 {
-   
-    font-size: 23px;
-    margin-bottom: 15px;
+.card h5 {
+    color: white;
+    font-weight: bold;
+    padding-bottom: 10px;
 }
 
 .pra p {
@@ -360,7 +342,7 @@ h5 {
 
 /* Button Styling */
 .card .button {
-    background-color: rgb(8, 88, 201);
+    background-color: #b30000;
     color: white;
     text-decoration: none;
     border: 2px solid transparent;
@@ -372,7 +354,7 @@ h5 {
 
 .card .button:hover {
     background-color: transparent;
-    border: 2px solid rgb(31, 8, 201);
+    border: 2px solid #ad0000;
     cursor: pointer;
 }
 
@@ -402,7 +384,7 @@ h5 {
 
 /* Button Styling */
 .contact-me .button-two {
-    background-color: rgb(8, 88, 201);
+    background-color:#b30000;
     color: white;
     text-decoration: none;
     border: 2px solid transparent;
@@ -414,7 +396,7 @@ h5 {
 
 .contact-me .button-two:hover {
     background-color: transparent;
-    border: 2px solid rgb(8, 88, 201);
+    border: 2px solid #ad0000;
     cursor: pointer;
 }
 
@@ -604,9 +586,6 @@ footer p:nth-child(2) {
         font-size: 28px;
     }
 }
-
-
-
 
 
 
