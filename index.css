@@ -231,7 +231,7 @@ button:hover{
 .about{
     width: 100%;
     padding: 100px 0px;
-    background-color: #191919;
+    background-color: #0D2440;
 
 }
 .about img{
@@ -279,7 +279,7 @@ button:hover{
 
 
 .service{
-    background: rgb(255, 253, 253);
+    background: #E7F0FA;
     width: 100%;
     padding: 60px 20px; /* Adjusted padding for better responsiveness */
 
@@ -364,7 +364,7 @@ button:hover{
 .contact-me {
     width: 100%;
     min-height: 290px; /* Allows height to adapt as needed */
-    background: #191919;
+    background: #0D2440;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -412,7 +412,7 @@ footer {
     position: relative;
     width: 100%;
     min-height: 400px; /* Allows height to adjust dynamically */
-    background: #101010;
+    background: #2E5E99;
     display: flex;
     flex-direction: column;
     align-items: center;
