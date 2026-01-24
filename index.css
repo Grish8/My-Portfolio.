@@ -9,7 +9,7 @@
 html {
     scroll-behavior: smooth;
     overflow-x: hidden; /* Prevent horizontal scrolling */
-    background-color: #000;
+    background-color:black;
 }
 
 
@@ -18,8 +18,7 @@ html {
 .hero {
     height: 100vh;
     width: 100%;
-    background-color: #414141;
-    
+    background-color: #121212f5;
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -37,7 +36,7 @@ nav {
     top: 0;
     left: 0;
     width: 100%;
-    background-color: #202020;
+    background-color: #1f1f1ffb;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -189,13 +188,13 @@ h1{
     justify-content: space-around;
 }
 .about-text h2{
-    color: white;
+    color: #ECF0F1;
     font-size:75px ;
     text-transform: capitalize;
     margin-bottom: 20px;
 }
 .about-text h5{
-    color: white;
+    color: #ECF0F1;
     letter-spacing: 2px;
     font-size: 22px;
     margin-bottom: 25px;
@@ -231,7 +230,7 @@ button:hover{
 .about{
     width: 100%;
     padding: 100px 0px;
-    background-color: #0D2440;
+    background-color: #2C3E50;
 
 }
 .about img{
@@ -276,23 +275,19 @@ button:hover{
 }
 
 
-
-
 .service{
-    background: #E7F0FA;
+    background: #7F8C8D;
     width: 100%;
     padding: 60px 20px; /* Adjusted padding for better responsiveness */
 
 }
  .title h2 {
-    color: black;
+    color: #ECF0F1;
     font-size: 50px; /* Default size for larger screens */
     max-width: 90%; /* Prevents stretching */
     margin: 20px auto;
     text-align: center;
 }
-
-
 
 
 .box {
@@ -328,7 +323,7 @@ button:hover{
 }
 
 .card h5 {
-    color: white;
+    color: blue;
     font-weight: bold;
     padding-bottom: 10px;
 }
@@ -364,7 +359,7 @@ button:hover{
 .contact-me {
     width: 100%;
     min-height: 290px; /* Allows height to adapt as needed */
-    background: #0D2440;
+    background:#34495E;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -412,7 +407,7 @@ footer {
     position: relative;
     width: 100%;
     min-height: 400px; /* Allows height to adjust dynamically */
-    background: #2E5E99;
+    background: #BDC3C7;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -689,7 +684,7 @@ footer p:nth-child(2) {
         line-height: 24px;
     }
     footer {
-        padding: 40px 20px;
+        padding: 30px 10px;
     }
     footer p:nth-child(1) {
         font-size: 26px;
