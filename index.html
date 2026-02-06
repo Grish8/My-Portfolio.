@@ -2,305 +2,1381 @@
 <html lang="en">
 <head>
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Grisham E. Odhiambo - Portfolio</title>
-    
-    <!-- CSS Files -->
-    <link rel="stylesheet" href="style.css">
-    
-    <!-- Fonts & Icons -->
+    <title>My Portfolio Website</title>
+
+    <link rel="stylesheet" type="" href="index.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="stylesheet" href="bootstrap-5.3.3-dist/css/bootstrap.min.css">
+
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap">
-    <link href="Fonts-6/css/all.css" rel="stylesheet">
-    
-    <!-- JavaScript -->
-    <script src="portfolio.js" defer></script>
+    <link href="Fonts-6/css/all.css"  rel="stylesheet"> <!--linking with font awesome--> 
+    <link rel="stylesheet" href="responsive.css">
+    <script src="index.js"></script>
+
+    <style>
+        /* Additional CSS for video and image sections */
+        .portfolio-section {
+            padding: 80px 20px;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #2c3e50;
+            font-size: 2.8rem;
+            font-weight: 700;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, #3498db, #2ecc71);
+            border-radius: 2px;
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            margin-bottom: 60px;
+            color: #7f8c8d;
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+        }
+        
+        /* Slides container */
+        .slides-wrapper {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            padding: 30px 0;
+        }
+        
+        .slides-track {
+            display: flex;
+            gap: 30px;
+            padding: 10px 0;
+            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .slides-track.auto-scroll {
+            animation: slideLeft 60s linear infinite;
+        }
+        
+        .slides-track:hover.auto-scroll {
+            animation-play-state: paused;
+        }
+        
+        /* Video and Image cards */
+        .video-card, .image-card {
+            flex: 0 0 auto;
+            width: 350px;
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+        }
+        
+        .video-card:hover, .image-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        
+        .video-card::before, .image-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #3498db, #2ecc71);
+            z-index: 1;
+        }
+        
+        .video-container, .image-container {
+            width: 100%;
+            height: 250px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .video-container::after, .image-container::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to bottom, transparent 70%, rgba(0,0,0,0.1) 100%);
+            pointer-events: none;
+        }
+        
+        .video-container video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .video-card:hover .video-container video,
+        .image-card:hover .image-container img {
+            transform: scale(1.05);
+        }
+        
+        .video-play-btn {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 60px;
+            height: 60px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #3498db;
+            font-size: 24px;
+            cursor: pointer;
+            opacity: 0;
+            transition: all 0.3s ease;
+            z-index: 2;
+        }
+        
+        .video-card:hover .video-play-btn {
+            opacity: 1;
+        }
+        
+        .card-content {
+            padding: 25px;
+            position: relative;
+        }
+        
+        .card-content h3 {
+            margin: 0 0 12px 0;
+            color: #2c3e50;
+            font-size: 1.4rem;
+            font-weight: 600;
+            line-height: 1.3;
+        }
+        
+        .card-content p {
+            margin: 0;
+            color: #7f8c8d;
+            font-size: 1rem;
+            line-height: 1.6;
+            min-height: 48px;
+        }
+        
+        .card-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 15px;
+        }
+        
+        .tag {
+            padding: 4px 12px;
+            background: linear-gradient(135deg, #f1f2f6, #dfe4ea);
+            color: #636e72;
+            font-size: 0.8rem;
+            border-radius: 20px;
+            font-weight: 500;
+        }
+        
+        /* Continuous animation keyframes */
+        @keyframes slideLeft {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+        
+        /* Enhanced Navigation buttons */
+        .navigation-buttons {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            transform: translateY(-50%);
+            display: flex;
+            justify-content: space-between;
+            padding: 0 20px;
+            pointer-events: none;
+            z-index: 10;
+        }
+        
+        .nav-btn {
+            width: 60px;
+            height: 60px;
+            background: rgba(255, 255, 255, 0.95);
+            border: 2px solid #3498db;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #3498db;
+            font-size: 22px;
+            cursor: pointer;
+            pointer-events: all;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+            opacity: 0.9;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .nav-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, #3498db, #2ecc71);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 1;
+        }
+        
+        .nav-btn i {
+            position: relative;
+            z-index: 2;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-btn:hover {
+            transform: scale(1.15);
+            box-shadow: 0 8px 25px rgba(52, 152, 219, 0.3);
+            opacity: 1;
+        }
+        
+        .nav-btn:hover::before {
+            opacity: 1;
+        }
+        
+        .nav-btn:hover i {
+            color: white;
+            transform: scale(1.2);
+        }
+        
+        .nav-btn:active {
+            transform: scale(1.05);
+        }
+        
+        .nav-btn:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+            pointer-events: none;
+            border-color: #bdc3c7;
+            background: rgba(255, 255, 255, 0.5);
+        }
+        
+        .nav-btn:disabled i {
+            color: #bdc3c7;
+        }
+        
+        /* Controls styling */
+        .controls {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+        
+        .control-btn {
+            padding: 14px 32px;
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 20px rgba(52, 152, 219, 0.25);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .control-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, #2ecc71, #27ae60);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .control-btn span {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .control-btn i {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .control-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(52, 152, 219, 0.4);
+        }
+        
+        .control-btn:hover::before {
+            opacity: 1;
+        }
+        
+        .control-btn:active {
+            transform: translateY(-1px);
+        }
+        
+        .control-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none !important;
+            box-shadow: 0 4px 15px rgba(52, 152, 219, 0.2) !important;
+        }
+        
+        /* Section specific backgrounds */
+        #video-editing {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e3f2fd 100%);
+        }
+        
+        #photography {
+            background: linear-gradient(135deg, #f8f9fa 0%, #fff3e0 100%);
+        }
+        
+        /* Scroll indicators */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+            z-index: 5;
+        }
+        
+        .scroll-dot {
+            width: 8px;
+            height: 8px;
+            background: rgba(52, 152, 219, 0.3);
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+        
+        .scroll-dot.active {
+            background: #3498db;
+            transform: scale(1.3);
+        }
+        
+        /* Empty state */
+        .empty-state {
+            text-align: center;
+            padding: 60px 20px;
+            color: #bdc3c7;
+            font-size: 1.1rem;
+            font-style: italic;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .video-card, .image-card {
+                width: 320px;
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .video-card, .image-card {
+                width: 300px;
+            }
+            
+            .section-title {
+                font-size: 2.4rem;
+            }
+            
+            .navigation-buttons {
+                padding: 0 15px;
+            }
+            
+            .nav-btn {
+                width: 50px;
+                height: 50px;
+                font-size: 20px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .video-card, .image-card {
+                width: 280px;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .section-subtitle {
+                font-size: 1.1rem;
+                padding: 0 20px;
+            }
+            
+            .portfolio-section {
+                padding: 60px 15px;
+            }
+            
+            .navigation-buttons {
+                padding: 0 10px;
+            }
+            
+            .nav-btn {
+                width: 45px;
+                height: 45px;
+                font-size: 18px;
+            }
+            
+            .controls {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .control-btn {
+                width: 100%;
+                max-width: 250px;
+                justify-content: center;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .video-card, .image-card {
+                width: 260px;
+            }
+            
+            .card-content {
+                padding: 20px;
+            }
+            
+            .card-content h3 {
+                font-size: 1.2rem;
+            }
+            
+            .controls {
+                gap: 12px;
+            }
+            
+            .control-btn {
+                padding: 12px 24px;
+                font-size: 0.9rem;
+            }
+        }
+        
+        /* Loading animation for images and videos */
+        .loading-placeholder {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+            background-size: 200% 100%;
+            animation: loading 1.5s infinite;
+            border-radius: 10px;
+        }
+        
+        @keyframes loading {
+            0% {
+                background-position: 200% 0;
+            }
+            100% {
+                background-position: -200% 0;
+            }
+        }
+        
+        /* Gradient overlay for better text readability */
+        .image-container::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 60px;
+            background: linear-gradient(to top, rgba(0,0,0,0.1), transparent);
+            z-index: 1;
+        }
+        
+        /* Pause animation on reduced motion preference */
+        @media (prefers-reduced-motion: reduce) {
+            .slides-track.auto-scroll {
+                animation: none;
+            }
+        }
+    </style>
 </head>
 <body>
-    <!-- Header & Navigation -->
-    <header class="header">
-        <div class="container">
-            <nav class="navbar">
-                <div class="logo">
-                    <h2>Portfo<span class="highlight">lio</span></h2>
-                </div>
-                
-                <!-- Desktop Navigation -->
-                <ul class="nav-menu">
-                    <li><a href="#home" onclick="closeMenu()">Home</a></li>
-                    <li><a href="#about" onclick="closeMenu()">About Me</a></li>
-                    <li><a href="#services" onclick="closeMenu()">Services</a></li>
-                    <li><a href="#skills" onclick="closeMenu()">Skills</a></li>
-                    <li><a href="#video-editing" onclick="closeMenu()">Video Editing</a></li>
-                    <li><a href="#photography" onclick="closeMenu()">Photography</a></li>
-                    <li><a href="#contact" onclick="closeMenu()">Contact</a></li>
-                    <li><a href="#cv" onclick="closeMenu()">My CV</a></li>
-                </ul>
-                
-                <!-- Rate Button -->
-                <a href="#" class="rate-btn" onclick="rateMe()">Rate</a>
-                
-                <!-- Mobile Menu Toggle -->
-                <div class="hamburger" onclick="toggleMenu()">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-            </nav>
-        </div>
-    </header>
+    <!--hero Section start-->
+    <div class="hero" style="background-image:url(home.jpg) ;">
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-overlay">
-            <div class="container">
-                <div class="hero-content">
-                    <h4 class="hero-subtitle">Hello, my name is:</h4>
-                    <h1 class="hero-title">Grisham E. <span class="highlight">Odhiambo</span></h1>
-                    <h3 class="hero-description">I am a Software and Web App Developer</h3>
-                    
-                    <div class="newsletter">
-                        <form onsubmit="sendEmail(event)">
-                            <input type="email" name="email" id="mail" placeholder="Enter Your Email" required>
-                            <button type="submit" class="submit-btn">Let's Start</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+        <!-- Menu Icon for Small Screens -->
+        <div class="menu-icon" onclick="toggleMenu()">&#9776;</div>
 
-    <!-- About Section -->
-    <section id="about" class="about section-padding">
-        <div class="container">
-            <div class="about-grid">
-                <div class="about-image">
-                    <img src="blue-shirt.jpg" alt="Grisham E. Odhiambo">
-                </div>
-                <div class="about-content">
-                    <h2 class="section-title">About Me</h2>
-                    <h3 class="about-subtitle">Programmer & <span class="highlight">Developer</span></h3>
-                    
-                    <div class="about-text">
-                        <p>Hi there! I'm a passionate and dedicated software developer with a strong background in both programming and hardware repair. With expertise in a wide range of languages and technologies, I create robust, efficient, and scalable solutions for diverse projects.</p>
-                        
-                        <div class="skills-highlight">
-                            <h4 id="skills">My skills include:</h4>
-                            <ul class="skills-list">
-                                <li><strong>Programming Languages:</strong> Java, C#, C++, Python, JavaScript, PHP</li>
-                                <li><strong>Front-End Development:</strong> HTML, CSS, JavaScript, and React.js</li>
-                                <li><strong>Cloud Storage Platforms:</strong> Google Cloud Storage, and AWS</li>
-                                <li><strong>Frameworks & Libraries:</strong> React.js, Next.js, and Express.js</li>
-                                <li><strong>Databases:</strong> SQL, MongoDB, Redis</li>
-                                <li><strong>Other Skills:</strong> Computer hardware repair, Video Editing, Photography</li>
-                            </ul>
+        <nav id="nav-menu">
+            <h2 class="logo">Portfo<span>lio</span></h2>
+
+            <ul>
+                <li><a href="#" onclick="closeMenu()"> Home</a></li>
+                <li><a href="#about" onclick="closeMenu()"> About Me</a></li>
+                <li><a href="#services" onclick="closeMenu()"> Service</a></li>
+                <li><a href="#skills" onclick="closeMenu()"> Skills</a></li>
+                <li><a href="#video-editing" onclick="closeMenu()"> Video Editing</a></li>
+                <li><a href="#photography" onclick="closeMenu()"> Photography</a></li>
+                <li><a href="#contacts" onclick="closeMenu()"> Contact Me</a></li>
+                <li><a href="#My CV" onclick="closeMenu()"> My CV</a></li>
+            </ul>
+
+            <a href="#" class="button "onclick="rateMe()">Rate</a>
+
+             <!-- Modal for rating -->
+             <div id="ratingModal" class="modal">
+                <div class="modal-content">
+                    <span class="close" onclick="closeModal()">&times;</span>
+                    <h2>Rate Me</h2>
+                    <form id="ratingForm">
+                        <div class="rating">
+                            <input type="radio" name="star" id="star5" value="5"><label for="star5">★</label>
+                            <input type="radio" name="star" id="star4" value="4"><label for="star4">★</label>
+                            <input type="radio" name="star" id="star3" value="3"><label for="star3">★</label>
+                            <input type="radio" name="star" id="star2" value="2"><label for="star2">★</label>
+                            <input type="radio" name="star" id="star1" value="1"><label for="star1">★</label>
                         </div>
-                        
-                        <p>My journey in software development has been driven by a relentless curiosity and a desire to innovate. I thrive on tackling complex problems and turning ideas into reality. I'm excited to contribute my skills and knowledge to create impactful software solutions and continuously learn and grow in this ever-evolving field.</p>
-                        
-                        <button class="cta-btn">Let's Talk</button>
-                    </div>
+                        <button type="button" class="submit-btn" onclick="submitRating()">Submit</button>
+                    </form>
                 </div>
             </div>
-        </div>
-    </section>
+        
+        </nav>
 
-    <!-- Video Editing Portfolio -->
-    <section id="video-editing" class="portfolio-section section-padding">
-        <div class="container">
-            <h2 class="section-title">Video Editing Portfolio</h2>
-            <p class="section-subtitle">Showcasing professional video editing projects with smooth animations and creative effects</p>
-            
-            <div class="slides-wrapper">
-                <div class="navigation-buttons">
-                    <button class="nav-btn prev-btn" onclick="prevVideoSlide()" id="video-prev-btn">
-                        <i class="fas fa-chevron-left"></i>
-                    </button>
-                    <button class="nav-btn next-btn" onclick="nextVideoSlide()" id="video-next-btn">
-                        <i class="fas fa-chevron-right"></i>
-                    </button>
-                </div>
-                
-                <div class="slides-track" id="video-track">
-                    <!-- Video cards will be populated by JavaScript -->
-                </div>
-            </div>
-            
-            <div class="controls">
-                <button class="control-btn" onclick="toggleVideoAutoScroll()" id="video-auto-btn">
-                    <i class="fas fa-play"></i> <span>Start Auto Scroll</span>
-                </button>
-                <button class="control-btn" onclick="toggleVideoSpeed()" id="video-speed-btn">
-                    <i class="fas fa-tachometer-alt"></i> <span>Speed: 1x</span>
-                </button>
-            </div>
-        </div>
-    </section>
 
-    <!-- Photography Portfolio -->
-    <section id="photography" class="portfolio-section section-padding">
-        <div class="container">
-            <h2 class="section-title">Photography Portfolio</h2>
-            <p class="section-subtitle">A curated collection of photography work showcasing composition and editing skills</p>
-            
-            <div class="slides-wrapper">
-                <div class="navigation-buttons">
-                    <button class="nav-btn prev-btn" onclick="prevImageSlide()" id="image-prev-btn">
-                        <i class="fas fa-chevron-left"></i>
-                    </button>
-                    <button class="nav-btn next-btn" onclick="nextImageSlide()" id="image-next-btn">
-                        <i class="fas fa-chevron-right"></i>
-                    </button>
-                </div>
-                
-                <div class="slides-track" id="image-track">
-                    <!-- Image cards will be populated by JavaScript -->
-                </div>
-            </div>
-            
-            <div class="controls">
-                <button class="control-btn" onclick="toggleImageAutoScroll()" id="image-auto-btn">
-                    <i class="fas fa-play"></i> <span>Start Auto Scroll</span>
-                </button>
-                <button class="control-btn" onclick="toggleImageSpeed()" id="image-speed-btn">
-                    <i class="fas fa-tachometer-alt"></i> <span>Speed: 1x</span>
-                </button>
-            </div>
-        </div>
-    </section>
+         <div class="content"> <!--The next section containing contents-->  
+                <h4 style="color: white; font-size: 15px;">Hello, my name is: </h4>
+                <h1 style="color: rgb(209, 200, 200);font-size: 40px ">Grisham E.<span> Odhiambo</span></h1>
+                <h3 style="color: white; ">I am a Software and Web App Developer</h3>
 
-    <!-- Services Section -->
-    <section id="services" class="services section-padding">
-        <div class="container">
-            <h2 class="section-title">My Services</h2>
-            
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-code"></i>
-                    </div>
-                    <h3>Web Development</h3>
-                    <p>I specialize in crafting modern, responsive, and high-performance websites and software that provide seamless user experiences.</p>
-                    <a href="#" class="service-btn">Read More</a>
+                <div class="newsletter"><!--the next part containing form elements-->
+                    <form onsubmit="sendEmail(event)">
+                        <input type="email" name="email" id="mail" placeholder="Enter Your Email">
+                        <input type="submit" name="submit" value="Let's Start">
+                    </form>
                 </div>
-                
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-address-book"></i>
-                    </div>
-                    <h3 id="contact">My Contacts</h3>
-                    <div class="contact-info">
-                        <p><strong>Tel:</strong> <a href="tel:+254712482948">0712482948</a></p>
-                        <p><strong>Mobile:</strong> <a href="tel:+254783895089">0783895089</a></p>
-                        <p><strong>Email:</strong> <a href="mailto:grishamenos@gmail.com">grishamenos@gmail.com</a></p>
-                    </div>
-                    <a href="#" class="service-btn">Contact</a>
-                </div>
-                
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-comment-alt"></i>
-                    </div>
-                    <h3>Feedback</h3>
-                    <p>Every project should be built with two primary goals: Firstly, it needs to work across all devices. Secondly, it needs to be as fast as possible.</p>
-                    <a href="#" class="service-btn">Comment</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="cta section-padding">
-        <div class="container">
-            <div class="cta-content">
-                <h2>Let Me Develop For You a Wonderful Software</h2>
-                <a href="#" class="cta-btn">Hire Me</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-info">
-                    <h3>Enos Grisham Odhiambo</h3>
-                    <p>For more information involving my achievements - please click on the links below:</p>
-                </div>
-                
-                <div class="social-links">
-                    <a href="https://github.com/Grish8" target="_blank" class="social-link">
-                        <i class="fab fa-github"></i>
-                        <span>GitHub</span>
-                    </a>
-                    <a href="#" class="social-link">
-                        <i class="fab fa-facebook"></i>
-                        <span>Facebook</span>
-                    </a>
-                    <a href="https://drive.google.com/file/d/1Lt9IB2DJLXSL1Xx8wxfZvhUzIfO5c0_s/view?usp=sharing" target="_blank" class="social-link" id="cv">
-                        <i class="fas fa-file-alt"></i>
-                        <span>CV</span>
-                    </a>
-                </div>
-                
-                <div class="footer-bottom">
-                    <p>&copy; <span id="current-year"></span> CopyRight By Enos-Grisham. All rights reserved.</p>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Rating Modal -->
-    <div id="ratingModal" class="modal">
-        <div class="modal-content">
-            <span class="close-modal" onclick="closeModal()">&times;</span>
-            <h2>Rate Me</h2>
-            <form id="ratingForm">
-                <div class="rating-stars">
-                    <input type="radio" name="star" id="star5" value="5"><label for="star5">★</label>
-                    <input type="radio" name="star" id="star4" value="4"><label for="star4">★</label>
-                    <input type="radio" name="star" id="star3" value="3"><label for="star3">★</label>
-                    <input type="radio" name="star" id="star2" value="2"><label for="star2">★</label>
-                    <input type="radio" name="star" id="star1" value="1"><label for="star1">★</label>
-                </div>
-                <button type="button" class="submit-rating" onclick="submitRating()">Submit Rating</button>
-            </form>
         </div>
     </div>
 
-    <!-- Templates for portfolio items -->
-    <template id="video-card-template">
-        <div class="video-card">
-            <div class="video-container">
-                <video controls>
-                    <source src="" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-                <div class="video-play-btn">
-                    <i class="fas fa-play"></i>
+    <!--About section start-->
+   <section class="about">
+    <div class="main">
+        <img src="blue-shirt.jpg" alt="">
+        <div class="about-text">
+            <h2 id="about" class="text-primary">About Me</h2>
+            <h5>Programmer & <span>Developer</span> </h5>
+           
+            <p>Hi there! I'm a passionate and dedicated software developer with a strong background in both programming and hardware repair. With expertise in a wide range of languages and technologies, I create robust, efficient, and scalable solutions for diverse projects. </p>
+            
+           <h2 id="skills"  style=" font-size: 30px;">My skills include:</h2>
+                <p ><strong>Programming Languages:</strong> Java, C#, C++, Python, JavaScript, PHP
+                 <br><strong>Front-End Development: </strong> Html, CSS, Javascript, and React.Js
+                 <br><strong>Cloud Storage Platforms: </strong> Google Cloud Storage, and AWS
+                <br><strong>Frameworks & Libraries:</strong> React.Js, Next.Js, and Express.Js
+                <br><strong>Databases:</strong> SQL, MongoDB, Redis
+                <br><strong>Other Skills:</strong> Computer hardware repair, Video Editing, Photography</p>
+                
+                <br><p>My journey in software development has been driven by a relentless curiosity and a desire to innovate.
+                
+                <br>I thrive on tackling complex problems and turning ideas into reality.
+            
+                I'm excited to contribute my skills and knowledge to create impactful software solutions and continuously learn and grow in this ever-evolving field.</p>
+                
+            <button type="button">Let's Talk</button>
+        </div>
+    </div>
+   </section>
+
+   <!-- Video Editing Portfolio Section -->
+   <section id="video-editing" class="portfolio-section">
+        <h2 class="section-title">Video Editing Portfolio</h2>
+        <p class="section-subtitle">Showcasing professional video editing projects with smooth animations and creative effects</p>
+        
+        <div class="slides-wrapper">
+            <!-- Navigation buttons -->
+            <div class="navigation-buttons">
+                <button class="nav-btn prev-btn" onclick="prevVideoSlide()" id="video-prev-btn">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="nav-btn next-btn" onclick="nextVideoSlide()" id="video-next-btn">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+            
+            <div class="slides-track" id="video-track">
+                <!-- Video 1 -->
+                <div class="video-card">
+                    <div class="video-container">
+                        <video controls poster="video-thumbnail1.jpg">
+                            <source src="sample-video1.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <div class="video-play-btn">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h3>Corporate Promo Video</h3>
+                        <p>A professional promotional video edited with smooth transitions, color grading, and motion graphics.</p>
+                        <div class="card-tags">
+                            <span class="tag">Premiere Pro</span>
+                            <span class="tag">After Effects</span>
+                            <span class="tag">Color Grading</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Video 2 -->
+                <div class="video-card">
+                    <div class="video-container">
+                        <video controls poster="video-thumbnail2.jpg">
+                            <source src="sample-video2.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <div class="video-play-btn">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h3>Travel Vlog</h3>
+                        <p>Edited travel vlog with dynamic cuts, background music synchronization, and text animations.</p>
+                        <div class="card-tags">
+                            <span class="tag">Final Cut Pro</span>
+                            <span class="tag">Motion Graphics</span>
+                            <span class="tag">Audio Mixing</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Video 3 -->
+                <div class="video-card">
+                    <div class="video-container">
+                        <video controls poster="video-thumbnail3.jpg">
+                            <source src="sample-video3.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <div class="video-play-btn">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h3>Event Highlights</h3>
+                        <p>Highlights reel from a corporate event with multi-camera editing and audio mixing.</p>
+                        <div class="card-tags">
+                            <span class="tag">Multi-Camera</span>
+                            <span class="tag">DaVinci Resolve</span>
+                            <span class="tag">Event Coverage</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Video 4 -->
+                <div class="video-card">
+                    <div class="video-container">
+                        <video controls poster="video-thumbnail4.jpg">
+                            <source src="sample-video4.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <div class="video-play-btn">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h3>Product Commercial</h3>
+                        <p>Short commercial featuring advanced visual effects and 3D motion graphics integration.</p>
+                        <div class="card-tags">
+                            <span class="tag">Visual Effects</span>
+                            <span class="tag">3D Animation</span>
+                            <span class="tag">Commercial</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Video 5 -->
+                <div class="video-card">
+                    <div class="video-container">
+                        <video controls poster="video-thumbnail5.jpg">
+                            <source src="sample-video5.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <div class="video-play-btn">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h3>Music Video Edit</h3>
+                        <p>Creative music video editing with rhythm-based cuts and artistic color grading.</p>
+                        <div class="card-tags">
+                            <span class="tag">Music Video</span>
+                            <span class="tag">Rhythm Editing</span>
+                            <span class="tag">Color Grading</span>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="card-content">
-                <h3></h3>
-                <p></p>
-                <div class="card-tags"></div>
-            </div>
         </div>
-    </template>
+        
+        <div class="controls">
+            <button class="control-btn" onclick="toggleVideoAutoScroll()" id="video-auto-btn">
+                <i class="fas fa-play"></i> <span>Start Auto Scroll</span>
+            </button>
+            <button class="control-btn" onclick="toggleVideoSpeed()" id="video-speed-btn">
+                <i class="fas fa-tachometer-alt"></i> <span>Speed: 1x</span>
+            </button>
+        </div>
+   </section>
 
-    <template id="image-card-template">
-        <div class="image-card">
-            <div class="image-container">
-                <img src="" alt="">
+   <!-- Photography Portfolio Section -->
+   <section id="photography" class="portfolio-section">
+        <h2 class="section-title">Photography Portfolio</h2>
+        <p class="section-subtitle">A curated collection of photography work showcasing composition and editing skills</p>
+        
+        <div class="slides-wrapper">
+            <!-- Navigation buttons -->
+            <div class="navigation-buttons">
+                <button class="nav-btn prev-btn" onclick="prevImageSlide()" id="image-prev-btn">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="nav-btn next-btn" onclick="nextImageSlide()" id="image-next-btn">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
             </div>
-            <div class="card-content">
-                <h3></h3>
-                <p></p>
-                <div class="card-tags"></div>
+            
+            <div class="slides-track" id="image-track">
+                <!-- Image 1 -->
+                <div class="image-card">
+                    <div class="image-container">
+                        <img src="photo1.jpg" alt="Landscape Photography" onerror="this.src='https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=350&h=250&fit=crop'">
+                    </div>
+                    <div class="card-content">
+                        <h3>Mountain Landscape</h3>
+                        <p>Beautiful mountain scenery captured during golden hour with professional color correction.</p>
+                        <div class="card-tags">
+                            <span class="tag">Landscape</span>
+                            <span class="tag">Lightroom</span>
+                            <span class="tag">Golden Hour</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Image 2 -->
+                <div class="image-card">
+                    <div class="image-container">
+                        <img src="photo2.jpg" alt="Portrait Photography" onerror="this.src='https://images.unsplash.com/photo-1494790108755-2616b612b786?w=350&h=250&fit=crop'">
+                    </div>
+                    <div class="card-content">
+                        <h3>Portrait Session</h3>
+                        <p>Professional portrait with studio lighting and advanced skin retouching techniques.</p>
+                        <div class="card-tags">
+                            <span class="tag">Portrait</span>
+                            <span class="tag">Studio</span>
+                            <span class="tag">Retouching</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Image 3 -->
+                <div class="image-card">
+                    <div class="image-container">
+                        <img src="photo3.jpg" alt="Urban Photography" onerror="this.src='https://images.unsplash.com/photo-1519501025264-65ba15a82390?w=350&h=250&fit=crop'">
+                    </div>
+                    <div class="card-content">
+                        <h3>Urban Architecture</h3>
+                        <p>City architecture shot with attention to lines and symmetry, edited for dramatic effect.</p>
+                        <div class="card-tags">
+                            <span class="tag">Architecture</span>
+                            <span class="tag">Urban</span>
+                            <span class="tag">Symmetry</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Image 4 -->
+                <div class="image-card">
+                    <div class="image-container">
+                        <img src="photo4.jpg" alt="Product Photography" onerror="this.src='https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?w=350&h=250&fit=crop'">
+                    </div>
+                    <div class="card-content">
+                        <h3>Product Shot</h3>
+                        <p>Clean product photography with professional lighting setup and background removal.</p>
+                        <div class="card-tags">
+                            <span class="tag">Product</span>
+                            <span class="tag">Studio</span>
+                            <span class="tag">Lighting</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Image 5 -->
+                <div class="image-card">
+                    <div class="image-container">
+                        <img src="photo5.jpg" alt="Nature Photography" onerror="this.src='https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=350&h=250&fit=crop'">
+                    </div>
+                    <div class="card-content">
+                        <h3>Forest Path</h3>
+                        <p>Nature photography with enhanced colors and detailed focus stacking technique.</p>
+                        <div class="card-tags">
+                            <span class="tag">Nature</span>
+                            <span class="tag">Focus Stacking</span>
+                            <span class="tag">Macro</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Image 6 -->
+                <div class="image-card">
+                    <div class="image-container">
+                        <img src="photo6.jpg" alt="Event Photography" onerror="this.src='https://images.unsplash.com/photo-1511578314322-379afb476865?w=350&h=250&fit=crop'">
+                    </div>
+                    <div class="card-content">
+                        <h3>Event Coverage</h3>
+                        <p>Candid event photography with natural lighting and minimal post-processing.</p>
+                        <div class="card-tags">
+                            <span class="tag">Event</span>
+                            <span class="tag">Candid</span>
+                            <span class="tag">Natural Light</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </template>
+        
+        <div class="controls">
+            <button class="control-btn" onclick="toggleImageAutoScroll()" id="image-auto-btn">
+                <i class="fas fa-play"></i> <span>Start Auto Scroll</span>
+            </button>
+            <button class="control-btn" onclick="toggleImageSpeed()" id="image-speed-btn">
+                <i class="fas fa-tachometer-alt"></i> <span>Speed: 1x</span>
+            </button>
+        </div>
+   </section>
+
+   <!--service section start-->
+   <div class="service">
+        <div class="title">
+            <h2 id="services" class="text-primary">My Services</h2>
+        </div>
+
+        <div class="box">
+            <div class="card " style="background-color: #BDC3C7">
+                <i class="fa-solid fa-bars"></i>
+                <h5 >Web Development</h5>
+                <div class="pra">
+                    <p>
+                        I specialize in crafting modern, responsive, and high-performance websites and softwares that provide seamless user experiences.
+                    </p>
+                    <p style="text-align:center ;">
+                        <a class="button"  href="#">Read More</a>
+                    </p>
+                </div>
+            </div>
+
+            <div class="card " style="background-color: #BDC3C7;">
+                <i class="fa-regular fa-user"></i>
+                <h5 id="contacts">My Contacts</h5>
+                <div class="pra">
+                    <p>
+                    <span > Tel : </span> - <a href="tel:+254712482948">0712482948</a> 
+                    </p>
+            
+                    <p>
+                        <span > Mobile : </span> - <a href="tel:+254783895089">0783895089 </a>
+                    </p>
+
+                    <p>
+                    Email: <a href="mailto: doublegomosh00@gmail.com">grishamenos@gmail.com</a>
+                    </p>
+                    <p style="text-align:center ;">
+                        <a class="button"  href="#">Contact</a>
+                    </p>
+                </div>
+            </div>
+
+            <div class="card " style="background-color: #BDC3C7">
+                <i class="fa-regular fa-bell"></i>
+                <h5 >Feed back</h5>
+                <div class="pra">
+                    <p>
+                        Every website should be built with two primary goals: Firstly, it needs to work across all devices. Secondly, it needs to be fast as possible
+                    </p>
+                    <p style="text-align:center ;">
+                        <a class="button"  href="#">Comment</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+   </div>
+
+   <!--Contact Me-->
+   <div class="contact-me">
+    <p>Let Me Develop For You a Wonderful Software </p>
+    <a class="button-two" href="#">Hire Me</a>
+   </div>
+
+   <!--footer start-->
+   <footer>
+    <p> Enos Grisham Odhiambo</p>
+   <p >For more information involving my achievements - please click on the links below: </p>
+   <div class="social">
+    <a href="https://github.com/Grish8">
+        <i class="fa-brands fa-github"></i>
+        <span>GitHub</span>
+    </a>
+    <a href="#">
+        <i class="fa-brands fa-instagram"></i>
+        <span>Facebook</span>
+    </a>
+    <a href="https://drive.google.com/file/d/1Lt9IB2DJLXSL1Xx8wxfZvhUzIfO5c0_s/view?usp=sharing">
+        <i class="fa-solid fa-certificate"></i>
+        <span id="My CV">CV</span>
+    </a>
+   </div>
+   <p class="end">CopyRight By Enos-Grisham</p>
+   </footer>
+
+   <script>
+        // State management
+        let videoState = {
+            currentPosition: 0,
+            autoScroll: false,
+            speed: 1,
+            totalCards: 5,
+            cardWidth: 350,
+            gap: 30,
+            isAutoScrollEnabled: false
+        };
+        
+        let imageState = {
+            currentPosition: 0,
+            autoScroll: false,
+            speed: 1,
+            totalCards: 6,
+            cardWidth: 350,
+            gap: 30,
+            isAutoScrollEnabled: false
+        };
+        
+        // Initialize on load
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeSlides();
+            updateNavigationButtons();
+            
+            // Initialize video error handlers
+            const videos = document.querySelectorAll('video');
+            videos.forEach(video => {
+                video.addEventListener('error', function() {
+                    handleVideoError(this.parentElement);
+                });
+            });
+            
+            // Initialize image error handlers
+            const images = document.querySelectorAll('.image-container img');
+            images.forEach(img => {
+                img.addEventListener('error', function() {
+                    handleImageError(this);
+                });
+            });
+            
+            // Initialize video play buttons
+            const videoPlayBtns = document.querySelectorAll('.video-play-btn');
+            videoPlayBtns.forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const video = this.parentElement.querySelector('video');
+                    if (video) {
+                        if (video.paused) {
+                            video.play();
+                            this.innerHTML = '<i class="fas fa-pause"></i>';
+                        } else {
+                            video.pause();
+                            this.innerHTML = '<i class="fas fa-play"></i>';
+                        }
+                    }
+                });
+            });
+            
+            // Update play button when video state changes
+            const allVideos = document.querySelectorAll('video');
+            allVideos.forEach(video => {
+                video.addEventListener('play', function() {
+                    const btn = this.parentElement.querySelector('.video-play-btn');
+                    if (btn) btn.innerHTML = '<i class="fas fa-pause"></i>';
+                });
+                
+                video.addEventListener('pause', function() {
+                    const btn = this.parentElement.querySelector('.video-play-btn');
+                    if (btn) btn.innerHTML = '<i class="fas fa-play"></i>';
+                });
+            });
+        });
+        
+        function initializeSlides() {
+            const videoTrack = document.getElementById('video-track');
+            const imageTrack = document.getElementById('image-track');
+            
+            // Get actual card width based on screen size
+            const firstVideoCard = videoTrack.querySelector('.video-card');
+            const firstImageCard = imageTrack.querySelector('.image-card');
+            
+            if (firstVideoCard) {
+                const style = window.getComputedStyle(firstVideoCard);
+                videoState.cardWidth = firstVideoCard.offsetWidth;
+            }
+            
+            if (firstImageCard) {
+                imageState.cardWidth = firstImageCard.offsetWidth;
+            }
+            
+            // Check if all cards fit in viewport
+            checkIfAllCardsFit();
+        }
+        
+        function checkIfAllCardsFit() {
+            const videoTrack = document.getElementById('video-track');
+            const imageTrack = document.getElementById('image-track');
+            const wrapper = document.querySelector('.slides-wrapper');
+            
+            if (videoTrack && wrapper) {
+                const wrapperWidth = wrapper.offsetWidth;
+                const totalVideoWidth = (videoState.cardWidth + videoState.gap) * videoState.totalCards - videoState.gap;
+                
+                // If all videos fit, disable auto-scroll
+                if (totalVideoWidth <= wrapperWidth) {
+                    videoState.isAutoScrollEnabled = false;
+                    videoTrack.classList.remove('auto-scroll');
+                    document.getElementById('video-auto-btn').disabled = true;
+                    document.getElementById('video-auto-btn').innerHTML = '<i class="fas fa-ban"></i> <span>All Items Visible</span>';
+                }
+            }
+            
+            if (imageTrack && wrapper) {
+                const wrapperWidth = wrapper.offsetWidth;
+                const totalImageWidth = (imageState.cardWidth + imageState.gap) * imageState.totalCards - imageState.gap;
+                
+                // If all images fit, disable auto-scroll
+                if (totalImageWidth <= wrapperWidth) {
+                    imageState.isAutoScrollEnabled = false;
+                    imageTrack.classList.remove('auto-scroll');
+                    document.getElementById('image-auto-btn').disabled = true;
+                    document.getElementById('image-auto-btn').innerHTML = '<i class="fas fa-ban"></i> <span>All Items Visible</span>';
+                }
+            }
+        }
+        
+        // Video navigation functions
+        function prevVideoSlide() {
+            const videoTrack = document.getElementById('video-track');
+            const wrapper = document.querySelector('#video-editing .slides-wrapper');
+            
+            if (!videoTrack || !wrapper) return;
+            
+            const wrapperWidth = wrapper.offsetWidth;
+            const maxScroll = (videoState.cardWidth + videoState.gap) * videoState.totalCards - wrapperWidth;
+            
+            // Move back by one card
+            videoState.currentPosition = Math.min(videoState.currentPosition + (videoState.cardWidth + videoState.gap), 0);
+            
+            // Update track position
+            videoTrack.style.transform = `translateX(${videoState.currentPosition}px)`;
+            
+            updateNavigationButtons();
+        }
+        
+        function nextVideoSlide() {
+            const videoTrack = document.getElementById('video-track');
+            const wrapper = document.querySelector('#video-editing .slides-wrapper');
+            
+            if (!videoTrack || !wrapper) return;
+            
+            const wrapperWidth = wrapper.offsetWidth;
+            const maxScroll = (videoState.cardWidth + videoState.gap) * videoState.totalCards - wrapperWidth;
+            
+            // Move forward by one card
+            videoState.currentPosition = Math.max(videoState.currentPosition - (videoState.cardWidth + videoState.gap), -maxScroll);
+            
+            // Update track position
+            videoTrack.style.transform = `translateX(${videoState.currentPosition}px)`;
+            
+            updateNavigationButtons();
+        }
+        
+        // Image navigation functions
+        function prevImageSlide() {
+            const imageTrack = document.getElementById('image-track');
+            const wrapper = document.querySelector('#photography .slides-wrapper');
+            
+            if (!imageTrack || !wrapper) return;
+            
+            const wrapperWidth = wrapper.offsetWidth;
+            const maxScroll = (imageState.cardWidth + imageState.gap) * imageState.totalCards - wrapperWidth;
+            
+            // Move back by one card
+            imageState.currentPosition = Math.min(imageState.currentPosition + (imageState.cardWidth + imageState.gap), 0);
+            
+            // Update track position
+            imageTrack.style.transform = `translateX(${imageState.currentPosition}px)`;
+            
+            updateNavigationButtons();
+        }
+        
+        function nextImageSlide() {
+            const imageTrack = document.getElementById('image-track');
+            const wrapper = document.querySelector('#photography .slides-wrapper');
+            
+            if (!imageTrack || !wrapper) return;
+            
+            const wrapperWidth = wrapper.offsetWidth;
+            const maxScroll = (imageState.cardWidth + imageState.gap) * imageState.totalCards - wrapperWidth;
+            
+            // Move forward by one card
+            imageState.currentPosition = Math.max(imageState.currentPosition - (imageState.cardWidth + imageState.gap), -maxScroll);
+            
+            // Update track position
+            imageTrack.style.transform = `translateX(${imageState.currentPosition}px)`;
+            
+            updateNavigationButtons();
+        }
+        
+        function updateNavigationButtons() {
+            const videoTrack = document.getElementById('video-track');
+            const imageTrack = document.getElementById('image-track');
+            const videoWrapper = document.querySelector('#video-editing .slides-wrapper');
+            const imageWrapper = document.querySelector('#photography .slides-wrapper');
+            
+            if (videoTrack && videoWrapper) {
+                const wrapperWidth = videoWrapper.offsetWidth;
+                const maxVideoScroll = (videoState.cardWidth + videoState.gap) * videoState.totalCards - wrapperWidth;
+                
+                // Update video buttons
+                const videoPrevBtn = document.getElementById('video-prev-btn');
+                const videoNextBtn = document.getElementById('video-next-btn');
+                
+                if (videoPrevBtn) {
+                    videoPrevBtn.disabled = videoState.currentPosition >= 0;
+                }
+                if (videoNextBtn) {
+                    videoNextBtn.disabled = videoState.currentPosition <= -maxVideoScroll;
+                }
+            }
+            
+            if (imageTrack && imageWrapper) {
+                const wrapperWidth = imageWrapper.offsetWidth;
+                const maxImageScroll = (imageState.cardWidth + imageState.gap) * imageState.totalCards - wrapperWidth;
+                
+                // Update image buttons
+                const imagePrevBtn = document.getElementById('image-prev-btn');
+                const imageNextBtn = document.getElementById('image-next-btn');
+                
+                if (imagePrevBtn) {
+                    imagePrevBtn.disabled = imageState.currentPosition >= 0;
+                }
+                if (imageNextBtn) {
+                    imageNextBtn.disabled = imageState.currentPosition <= -maxImageScroll;
+                }
+            }
+        }
+        
+        // Auto-scroll functions
+        function toggleVideoAutoScroll() {
+            const videoTrack = document.getElementById('video-track');
+            const autoBtn = document.getElementById('video-auto-btn');
+            
+            if (!videoTrack || !autoBtn) return;
+            
+            videoState.isAutoScrollEnabled = !videoState.isAutoScrollEnabled;
+            
+            if (videoState.isAutoScrollEnabled) {
+                videoTrack.classList.add('auto-scroll');
+                videoTrack.style.animationDuration = `${60 / videoState.speed}s`;
+                autoBtn.innerHTML = '<i class="fas fa-pause"></i> <span>Stop Auto Scroll</span>';
+            } else {
+                videoTrack.classList.remove('auto-scroll');
+                autoBtn.innerHTML = '<i class="fas fa-play"></i> <span>Start Auto Scroll</span>';
+            }
+        }
+        
+        function toggleImageAutoScroll() {
+            const imageTrack = document.getElementById('image-track');
+            const autoBtn = document.getElementById('image-auto-btn');
+            
+            if (!imageTrack || !autoBtn) return;
+            
+            imageState.isAutoScrollEnabled = !imageState.isAutoScrollEnabled;
+            
+            if (imageState.isAutoScrollEnabled) {
+                imageTrack.classList.add('auto-scroll');
+                imageTrack.style.animationDuration = `${60 / imageState.speed}s`;
+                autoBtn.innerHTML = '<i class="fas fa-pause"></i> <span>Stop Auto Scroll</span>';
+            } else {
+                imageTrack.classList.remove('auto-scroll');
+                autoBtn.innerHTML = '<i class="fas fa-play"></i> <span>Start Auto Scroll</span>';
+            }
+        }
+        
+        function toggleVideoSpeed() {
+            const videoTrack = document.getElementById('video-track');
+            const speedBtn = document.getElementById('video-speed-btn');
+            
+            if (!videoTrack || !speedBtn) return;
+            
+            // Cycle through speeds: 1x -> 2x -> 0.5x -> 1x
+            if (videoState.speed === 1) {
+                videoState.speed = 2;
+            } else if (videoState.speed === 2) {
+                videoState.speed = 0.5;
+            } else {
+                videoState.speed = 1;
+            }
+            
+            // Update animation speed
+            if (videoState.isAutoScrollEnabled) {
+                videoTrack.style.animationDuration = `${60 / videoState.speed}s`;
+            }
+            
+            // Update button text
+            speedBtn.innerHTML = `<i class="fas fa-tachometer-alt"></i> <span>Speed: ${videoState.speed}x</span>`;
+            
+            // Show notification
+            showNotification(`Video scroll speed set to ${videoState.speed}x`);
+        }
+        
+        function toggleImageSpeed() {
+            const imageTrack = document.getElementById('image-track');
+            const speedBtn = document.getElementById('image-speed-btn');
+            
+            if (!imageTrack || !speedBtn) return;
+            
+            // Cycle through speeds: 1x -> 2x -> 0.5x -> 1x
+            if (imageState.speed === 1) {
+                imageState.speed = 2;
+            } else if (imageState.speed === 2) {
+                imageState.speed = 0.5;
+            } else {
+                imageState.speed = 1;
+            }
+            
+            // Update animation speed
+            if (imageState.isAutoScrollEnabled) {
+                imageTrack.style.animationDuration = `${60 / imageState.speed}s`;
+            }
+            
+            // Update button text
+            speedBtn.innerHTML = `<i class="fas fa-tachometer-alt"></i> <span>Speed: ${imageState.speed}x</span>`;
+            
+            // Show notification
+            showNotification(`Image scroll speed set to ${imageState.speed}x`);
+        }
+        
+        function showNotification(message) {
+            // Create notification element
+            const notification = document.createElement('div');
+            notification.textContent = message;
+            notification.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background: #3498db;
+                color: white;
+                padding: 12px 24px;
+                border-radius: 8px;
+                z-index: 1000;
+                animation: slideIn 0.3s ease;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            `;
+            
+            document.body.appendChild(notification);
+            
+            // Remove notification after 2 seconds
+            setTimeout(() => {
+                notification.style.animation = 'slideOut 0.3s ease';
+                setTimeout(() => {
+                    document.body.removeChild(notification);
+                }, 300);
+            }, 2000);
+        }
+        
+        // Add notification animations
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes slideIn {
+                from {
+                    transform: translateX(100%);
+                    opacity: 0;
+                }
+                to {
+                    transform: translateX(0);
+                    opacity: 1;
+                }
+            }
+            
+            @keyframes slideOut {
+                from {
+                    transform: translateX(0);
+                    opacity: 1;
+                }
+                to {
+                    transform: translateX(100%);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+        
+        // Window resize handler
+        window.addEventListener('resize', function() {
+            initializeSlides();
+            updateNavigationButtons();
+        });
+        
+        function handleImageError(img) {
+            img.src = 'https://via.placeholder.com/350x250/cccccc/666666?text=Sample+Image';
+            img.alt = 'Sample Image - Add your own photos';
+        }
+        
+        function handleVideoError(video) {
+            video.innerHTML = '<div class="loading-placeholder" style="display: flex; align-items: center; justify-content: center; height: 100%; background: #f0f0f0; color: #666; font-style: italic;">Add your video file here</div>';
+        }
+   </script>
 </body>
 </html>
