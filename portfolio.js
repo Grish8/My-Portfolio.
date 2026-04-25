@@ -2,10 +2,10 @@
 const portfolioData = {
     videos: [
         {
-            title: "Corporate Promo Video",
-            description: "A professional promotional video edited with smooth transitions, color grading, and motion graphics.",
-            tags: ["Premiere Pro", "After Effects", "Color Grading"],
-            videoSrc: "sample-video1.mp4",
+            title: "Real Time text to sign language skeleton",
+            description: "A real-time video showcasing a text-to-sign language skeleton animation, demonstrating the conversion of text input into dynamic sign language gestures.",
+            tags: ["Premiere Pro", "Motion Graphics", "Text to Sign language", "Color Grading"],
+            videoSrc: "videos/real-time-skeleton.mp4",
             thumbnail: "video-thumbnail1.jpg"
         },
         {
@@ -39,41 +39,35 @@ const portfolioData = {
     ],
     images: [
         {
-            title: "Mountain Landscape",
-            description: "Beautiful mountain scenery captured during golden hour with professional color correction.",
-            tags: ["Landscape", "Lightroom", "Golden Hour"],
-            imageSrc: "photo1.jpg"
+            title: "Sign Language Interpreter App",
+            description: "A web application designed to assist communication for the hearing impaired, featuring real-time sign language recognition and translation.",
+            tags: ["Web App", "Management System", "Full Stack"],
+            imageSrc: "images/Screenshot 2025-07-28 204026.png"
         },
         {
-            title: "Portrait Session",
-            description: "Professional portrait with studio lighting and advanced skin retouching techniques.",
-            tags: ["Portrait", "Studio", "Retouching"],
-            imageSrc: "photo2.jpg"
+            title: "Real Estate Web Application",
+            description: "A web application for managing real estate properties with features like property listings, tenant management, and financial tracking.",
+            tags: ["Web App", "Management System", "Full Stack"],
+            imageSrc: "images/real-estate-webapp.png"
         },
         {
-            title: "Urban Architecture",
-            description: "City architecture shot with attention to lines and symmetry, edited for dramatic effect.",
-            tags: ["Architecture", "Urban", "Symmetry"],
-            imageSrc: "photo3.jpg"
+            title: "Listing Real Estates",
+            description: "A web application for listing real estate properties, allowing users to browse, search, and filter properties based on various criteria.",
+            tags: ["Web App", "Real Estate", "Full Stack"],
+            imageSrc: "images/listing-real-estates.png"
         },
-        {
-            title: "Product Shot",
-            description: "Clean product photography with professional lighting setup and background removal.",
-            tags: ["Product", "Studio", "Lighting"],
-            imageSrc: "photo4.jpg"
+         {
+            title: "Real Estate Offers Page",
+            description: "A web application page dedicated to showcasing real estate offers, featuring property details, images, and contact information for potential buyers.",
+            tags: ["Web App", "Real Estate", "Full Stack"],
+            imageSrc: "images/real-estates-offers-page.png"
         },
-        {
-            title: "Forest Path",
-            description: "Nature photography with enhanced colors and detailed focus stacking technique.",
-            tags: ["Nature", "Focus Stacking", "Macro"],
-            imageSrc: "photo5.jpg"
+          {
+            title: "Tenants Management Page",
+            description: "A web application page designed for managing tenants in a real estate context, allowing landlords to track tenant information, lease agreements, and payment history.",
+            tags: ["Web App", "Real Estate", "Full Stack"],
+            imageSrc: "images/tenants-page.png"
         },
-        {
-            title: "Event Coverage",
-            description: "Candid event photography with natural lighting and minimal post-processing.",
-            tags: ["Event", "Candid", "Natural Light"],
-            imageSrc: "photo6.jpg"
-        }
     ]
 };
 
