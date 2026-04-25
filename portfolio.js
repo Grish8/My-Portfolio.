@@ -8,34 +8,7 @@ const portfolioData = {
             videoSrc: "videos/real-time-skeleton.mp4",
             thumbnail: "video-thumbnail1.jpg"
         },
-        {
-            title: "Travel Vlog",
-            description: "Edited travel vlog with dynamic cuts, background music synchronization, and text animations.",
-            tags: ["Final Cut Pro", "Motion Graphics", "Audio Mixing"],
-            videoSrc: "sample-video2.mp4",
-            thumbnail: "video-thumbnail2.jpg"
-        },
-        {
-            title: "Event Highlights",
-            description: "Highlights reel from a corporate event with multi-camera editing and audio mixing.",
-            tags: ["Multi-Camera", "DaVinci Resolve", "Event Coverage"],
-            videoSrc: "sample-video3.mp4",
-            thumbnail: "video-thumbnail3.jpg"
-        },
-        {
-            title: "Product Commercial",
-            description: "Short commercial featuring advanced visual effects and 3D motion graphics integration.",
-            tags: ["Visual Effects", "3D Animation", "Commercial"],
-            videoSrc: "sample-video4.mp4",
-            thumbnail: "video-thumbnail4.jpg"
-        },
-        {
-            title: "Music Video Edit",
-            description: "Creative music video editing with rhythm-based cuts and artistic color grading.",
-            tags: ["Music Video", "Rhythm Editing", "Color Grading"],
-            videoSrc: "sample-video5.mp4",
-            thumbnail: "video-thumbnail5.jpg"
-        }
+       
     ],
     images: [
         {
