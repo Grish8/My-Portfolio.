@@ -15,7 +15,7 @@ const portfolioData = {
             title: "Sign Language Interpreter App",
             description: "A web application designed to assist communication for the hearing impaired, featuring real-time sign language recognition and translation.",
             tags: ["Web App", "Management System", "Full Stack"],
-            imageSrc: "images/Screenshot 2025-07-28 204026.png"
+            imageSrc: "images/sign_language_app.jpeg"
         },
         {
             title: "Real Estate Web Application",
