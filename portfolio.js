@@ -167,11 +167,11 @@ function renderImages() {
         });
         
         // Add error handling for images
-        imgElement.onerror = () => {
+     /*   imgElement.onerror = () => {
             imgElement.src = 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=350&h=250&fit=crop';
             imgElement.alt = 'Sample Landscape Image';
         };
-        
+        */
         elements.imageTrack.appendChild(card);
     });
 }
