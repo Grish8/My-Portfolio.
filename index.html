@@ -34,13 +34,12 @@
                     <li><a href="#services" onclick="closeMenu()">Services</a></li>
                     <li><a href="#skills" onclick="closeMenu()">Skills</a></li>
                     <li><a href="#video-editing" onclick="closeMenu()">Video Editing</a></li>
-                    <li><a href="#photography" onclick="closeMenu()">Photography</a></li>
+                    <li><a href="#photography" onclick="closeMenu()">Photo Editing</a></li>
                     <li><a href="#contact" onclick="closeMenu()">Contact</a></li>
                     <li><a href="#cv" onclick="closeMenu()">My CV</a></li>
                 </ul>
                 
-                <!-- Rate Button -->
-                <a href="#" class="rate-btn" onclick="rateMe()">Rate</a>
+                
                 
                 <!-- Mobile Menu Toggle -->
                 <div class="hamburger" onclick="toggleMenu()">
@@ -61,12 +60,7 @@
                     <h1 class="hero-title">Grisham E. <span class="highlight">Odhiambo</span></h1>
                     <h3 class="hero-description">I am a Software and Web App Developer</h3>
                     
-                    <div class="newsletter">
-                        <form onsubmit="sendEmail(event)">
-                            <input type="email" name="email" id="mail" placeholder="Enter Your Email" required>
-                            <button type="submit" class="submit-btn">Let's Start</button>
-                        </form>
-                    </div>
+                   
                 </div>
             </div>
         </div>
@@ -252,23 +246,7 @@
         </div>
     </footer>
 
-    <!-- Rating Modal -->
-    <div id="ratingModal" class="modal">
-        <div class="modal-content">
-            <span class="close-modal" onclick="closeModal()">&times;</span>
-            <h2>Rate Me</h2>
-            <form id="ratingForm">
-                <div class="rating-stars">
-                    <input type="radio" name="star" id="star5" value="5"><label for="star5">★</label>
-                    <input type="radio" name="star" id="star4" value="4"><label for="star4">★</label>
-                    <input type="radio" name="star" id="star3" value="3"><label for="star3">★</label>
-                    <input type="radio" name="star" id="star2" value="2"><label for="star2">★</label>
-                    <input type="radio" name="star" id="star1" value="1"><label for="star1">★</label>
-                </div>
-                <button type="button" class="submit-rating" onclick="submitRating()">Submit Rating</button>
-            </form>
-        </div>
-    </div>
+
 
     <!-- Templates for portfolio items -->
     <template id="video-card-template">

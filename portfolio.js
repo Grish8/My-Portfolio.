@@ -8,38 +8,46 @@ const portfolioData = {
             videoSrc: "videos/real-time-skeleton.mp4",
             thumbnail: "video-thumbnail1.jpg"
         },
+          {
+            title: "Sign language recognition and translation app",
+            description: "A software designed to assist communication for the hearing impaired, featuring real-time sign language recognition and translation.",
+            tags: ["Web App", "Management System", "Full Stack"],
+            videoSrc: "videos/sign-language-app.mp4",
+            thumbnail: "video-thumbnail2.jpg"
+        },
        
     ],
     images: [
         {
-            title: "Sign Language Interpreter App",
-            description: "A web application designed to assist communication for the hearing impaired, featuring real-time sign language recognition and translation.",
+            title: "Software Engineering",
+            description: "A software designed to assist communication for the hearing impaired, featuring real-time sign language recognition and translation.",
             tags: ["Web App", "Management System", "Full Stack"],
-            imageSrc: "images\signlanguage_photo.jpg"
+            imageSrc: "images/Screenshot 2025-07-28 204026.png"
         },
         {
-            title: "Real Estate Web Application",
+            title: "Webapp Developmet",
             description: "A web application for managing real estate properties with features like property listings, tenant management, and financial tracking.",
             tags: ["Web App", "Management System", "Full Stack"],
             imageSrc: "images/real-estate-webapp.png"
         },
         {
-            title: "Listing Real Estates",
-            description: "A web application for listing real estate properties, allowing users to browse, search, and filter properties based on various criteria.",
-            tags: ["Web App", "Real Estate", "Full Stack"],
-            imageSrc: "images/listing-real-estates.png"
+            title: "Social Media Management",
+            description: "Managing social media accounts for businesses, creating and scheduling posts, engaging with followers, and analyzing performance metrics to optimize online presence.",
+            tags: ["Social Media", "Content Creation", "Analytics"],
+            imageSrc: "images/customers_demographics.png"
         },
-         {
-            title: "Real Estate Offers Page",
-            description: "A web application page dedicated to showcasing real estate offers, featuring property details, images, and contact information for potential buyers.",
-            tags: ["Web App", "Real Estate", "Full Stack"],
-            imageSrc: "images/real-estates-offers-page.png"
+       
+          {
+            title: "Customer_analysis",
+            description: "Analyzing customer data to identify trends, preferences, and behaviors, providing insights for targeted marketing strategies and improved customer engagement.",
+            tags: ["Customer Analysis", "Data Analysis", "Marketing Insights"],
+            imageSrc: "images/customer_journey_map.png"
         },
           {
-            title: "Tenants Management Page",
-            description: "A web application page designed for managing tenants in a real estate context, allowing landlords to track tenant information, lease agreements, and payment history.",
-            tags: ["Web App", "Real Estate", "Full Stack"],
-            imageSrc: "images/tenants-page.png"
+            title: "Photo_editing",
+            description: "Editing photos for digital marketing purposes, enhancing visual appeal and optimizing images for online platforms.",
+            tags: ["Photo Editing", "Digital Marketing"],
+            imageSrc: "images/docking-station.jpg"
         },
     ]
 };
@@ -519,12 +527,7 @@ function setupEventListeners() {
 }
 
 // Rating modal functions
-function rateMe() {
-    const modal = document.getElementById('ratingModal');
-    if (modal) {
-        modal.style.display = 'flex';
-    }
-}
+
 
 function closeModal() {
     const modal = document.getElementById('ratingModal');
@@ -533,25 +536,10 @@ function closeModal() {
     }
 }
 
-function submitRating() {
-    const selectedRating = document.querySelector('input[name="star"]:checked');
-    if (selectedRating) {
-        showNotification(`Thank you for your ${selectedRating.value}-star rating!`);
-        closeModal();
-    } else {
-        showNotification('Please select a rating first.');
-    }
-}
+
 
 // Email function (placeholder)
-function sendEmail(event) {
-    event.preventDefault();
-    const email = document.getElementById('mail').value;
-    if (email) {
-        showNotification(`Thank you! We'll contact you at ${email}`);
-        document.getElementById('mail').value = '';
-    }
-}
+
 
 // Initialize when DOM is loaded
 document.addEventListener('DOMContentLoaded', initPortfolio);
