@@ -12,7 +12,7 @@ const portfolioData = {
             title: "Sign language recognition and translation app",
             description: "A software designed to assist communication for the hearing impaired, featuring real-time sign language recognition and translation.",
             tags: ["Web App", "Management System", "Full Stack"],
-            videoSrc: "videos/sign-language-app.mp4",
+            videoSrc: "videos/sign-language-video.mp4",
             thumbnail: "video-thumbnail2.jpg"
         },
        
