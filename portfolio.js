@@ -22,26 +22,26 @@ const portfolioData = {
             title: "Software Engineering",
             description: "A software designed to assist communication for the hearing impaired, featuring real-time sign language recognition and translation.",
             tags: ["Web App", "Management System", "Full Stack"],
-            imageSrc: "images/Screenshot 2025-07-28 204026.png"
+            imageSrc: "images/signlanguage_photo.jpg"
         },
         {
             title: "Webapp Developmet",
             description: "A web application for managing real estate properties with features like property listings, tenant management, and financial tracking.",
             tags: ["Web App", "Management System", "Full Stack"],
-            imageSrc: "images/real-estate-webapp.png"
+            imageSrc: "images/real_estate.png"
         },
         {
             title: "Social Media Management",
             description: "Managing social media accounts for businesses, creating and scheduling posts, engaging with followers, and analyzing performance metrics to optimize online presence.",
             tags: ["Social Media", "Content Creation", "Analytics"],
-            imageSrc: "images/customers_demographics.png"
+            imageSrc: "images/customer_demographics.png"
         },
        
           {
             title: "Customer_analysis",
             description: "Analyzing customer data to identify trends, preferences, and behaviors, providing insights for targeted marketing strategies and improved customer engagement.",
             tags: ["Customer Analysis", "Data Analysis", "Marketing Insights"],
-            imageSrc: "images/customer_journey_map.png"
+            imageSrc: "images/customer_analysis.png"
         },
           {
             title: "Photo_editing",
